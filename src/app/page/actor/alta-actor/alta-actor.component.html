@@ -1,0 +1,61 @@
+<app-loader *ngIf="cargando"></app-loader>
+
+<div class="container">
+  <div class="py-5 text-center">
+    <h2>Actores</h2>
+    <p class="lead">Carga de actores</p>
+  </div>
+  <div class="row">
+    <div class="col-md-6 ">
+      <h4 class="mb-3">Alta actor/actriz</h4>
+      <form class="mb-5" [formGroup]="formulario" (ngSubmit)="enviar()">
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="floatingNombre" placeholder="Nombre"
+            formControlName="nombre">
+          <label for="floatingNombre">Nombre</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="floatingApellido" placeholder="Apellido"
+            formControlName="apellido">
+          <label for="floatingApellido">Apellido</label>
+        </div>
+
+        <div>
+          <label class="w-100">Género
+            <select #select class="form-select form-select-lg mb-3">
+              <ng-container *ngFor="let tipo of tiposDeSexos">
+                <option [value]="tipo">{{tipo}}</option>
+              </ng-container>
+            </select>
+          </label>
+        </div>
+
+
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="floatingFechaDeNacimiento"
+            formControlName="fechaDeNacimiento" placeholder="dd-mm-yyyy" pattern="^(?:3[01]|[12][0-9]|0?[1-9])([\-/.])(0?[1-9]|1[1-2])\1\d{4}$"
+            min="1997-01-01" max="2030-12-31">
+          <label for="floatingFechaDeNacimiento">Fecha de nacimiento</label>
+          <p ><i class="bi bi-info-circle"></i> Formato fecha válido: dd/mm/aaaa</p>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" id="floatingIdPais" placeholder="País" readonly="true"
+            formControlName="pais">
+          <label for="floatingIdPais">Nacionalidad</label>
+        </div>
+        <p ><i class="bi bi-info-circle"></i> Seleccionar país con doble click sobre la bandera.</p>
+        <div class="btn-group w-100">
+          <button class="btn btn-primary" type="submit">Registrar</button>
+          <input type="button" value="Borrar" class="btn btn-danger" (click)="borrar()">
+
+        </div>
+
+      </form>
+    </div>
+    <div class="col-md-6 ">
+      <app-tabla-paises (onPais)="setPais($event)"></app-tabla-paises>
+    </div>
+  </div>
+
+</div>

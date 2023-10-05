@@ -1,0 +1,18 @@
+.navbar {
+  z-index: 100;
+  & .nav-link {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    & :hover {
+      color: var(--bs-primary);
+    }
+  }
+
+  & .active {
+    background-color: var(--bs-primary);
+    border-radius: 0.25rem;
+    &--error {
+      background-color: var(--bs-danger);
+    }
+  }
+}

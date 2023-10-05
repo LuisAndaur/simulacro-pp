@@ -1,0 +1,44 @@
+<div class="w-100">
+  <ng-container *ngIf="paises.length;else elseEsperandoLosPaises">
+    <div class="d-flex form-floating">
+
+      <input class="d-block" type="text" placeholder="Filtrar" class="form-control" [(ngModel)]="filtrado" id="floatingFiltrar">
+      <label for="floatingFiltrar">Filtrar</label>
+      <button class="btn btn-outline-danger" (click)="this.filtrado = ''">Borrar</button>
+    </div>
+    <table class="table table-sm table-light">
+      <thead>
+        <tr>
+          <th scope="col" class="nombre">Nombre pais</th>
+          <th scope="col" >Bandera</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pais of paises" (dblclick)="enviarPais(pais)">
+          <ng-container
+            *ngIf="filtrado == '' || pais.translations.spa.common.toLowerCase().includes(filtrado.toLowerCase())">
+            <td class="nombre">{{pais.translations.spa.common}}</td>
+            <td ><img [src]="pais.flags.svg" class="bandera"></td>
+          </ng-container>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
+
+  <ng-template #elseEsperandoLosPaises>
+    <ng-container *ngIf="!hayPaises;else elseNoHayPaises">
+      <div class="border rounded py-5 text-info">
+        <h3 class="text-center">Los paises se están cargando.</h3>
+        <div class="text-center">
+          <div class="spinner-border "></div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #elseNoHayPaises>
+      <div class="border rounded py-5 px-2 text-info">
+        <h3 class="text-center">No hay paises en la base de datos</h3>
+      </div>
+    </ng-template>
+  </ng-template>
+
+</div>
