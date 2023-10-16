@@ -6,18 +6,19 @@ import { AltaActorComponent } from './alta-actor/alta-actor.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RestCountriesService } from '../../services/rest-countries.service';
 import { LoaderComponent } from '../../shared/loader/loader.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
     AltaActorComponent,
-    TablaPaisesComponent,
-    LoaderComponent
+    TablaPaisesComponent
   ],
   imports: [
     CommonModule,
     ActorRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
   providers: [ RestCountriesService, {provide: LOCALE_ID, useValue: 'es'} ]
 })

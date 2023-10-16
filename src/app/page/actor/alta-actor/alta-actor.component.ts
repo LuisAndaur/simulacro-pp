@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { pFecha } from '../../../models/constant/pattern';
+import { pFECHA } from '../../../models/constant/pattern';
 import { ActorService } from '../../../services/actor.service';
 import { Actor } from '../../../models/class/actor';
 import { Genero } from '../../../types/genero';
@@ -44,7 +44,7 @@ export class AltaActorComponent implements OnInit {
 
       fechaDeNacimiento: new FormControl('', [
         Validators.required,
-        Validators.pattern(pFecha),
+        Validators.pattern(pFECHA),
       ]),
       pais: new FormControl('', [Validators.required]),
     });
@@ -60,6 +60,7 @@ export class AltaActorComponent implements OnInit {
       actor.nacionalidad = this.formulario.get('pais')?.value
 
       this.cargando = true;
+      debugger;
       this.actorService
         .setActor(actor)
         .then(

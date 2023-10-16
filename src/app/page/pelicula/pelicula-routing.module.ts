@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { AltaActorComponent } from './alta-actor/alta-actor.component';
+import { AltaPeliculaComponent } from './alta-pelicula/alta-pelicula.component';
 
 const routes: Routes = [
-  { path: 'alta', component: AltaActorComponent }
+  { path: 'alta', component: AltaPeliculaComponent}
 ];
 
 @NgModule({
@@ -15,4 +15,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class ActorRoutingModule { }
+export class PeliculaRoutingModule { }

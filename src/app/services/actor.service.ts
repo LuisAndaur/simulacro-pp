@@ -12,7 +12,7 @@ export class ActorService {
   private coleccion: any;
 
   constructor(private firestore: Firestore) {
-    this.coleccion = collection(this.firestore, 'laboratorio_4_actores');
+    this.coleccion = collection(this.firestore, 'actores');
   }
 
   getActores(): Observable<Array<Actor>> {

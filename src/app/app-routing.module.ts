@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, title: 'Home' },
   { path: 'not-found', component: NotFoundComponent, title: 'ERROR: 404 NOT FOUND' },
   { path: 'actor', loadChildren: () => import('./page/actor/actor.module').then((m) => m.ActorModule) },
+  { path: 'pelicula', loadChildren: () => import('./page/pelicula/pelicula.module').then((m) => m.PeliculaModule) },
   { path: '**', redirectTo: 'not-found', pathMatch: 'full' }
 ];
 
