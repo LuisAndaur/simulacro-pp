@@ -1,6 +1,6 @@
 <div class="w-100">
-  <ng-container *ngIf="paises.length;else elseEsperandoLosPaises">
-    <div class="d-flex form-floating">
+  <ng-container *ngIf="paises.length;else losPaisesNoEstanAun">
+    <div class="d-flex form-floating" [style.display]="bloquear?'none!important':'block'">
 
       <input class="d-block" type="text" placeholder="Filtrar" class="form-control" [(ngModel)]="filtrado" id="floatingFiltrar">
       <label for="floatingFiltrar">Filtrar</label>
@@ -15,30 +15,22 @@
       </thead>
       <tbody>
         <tr *ngFor="let pais of paises" (dblclick)="enviarPais(pais)">
-          <ng-container
-            *ngIf="filtrado == '' || pais.translations.spa.common.toLowerCase().includes(filtrado.toLowerCase())">
-            <td class="nombre">{{pais.translations.spa.common}}</td>
-            <td ><img [src]="pais.flags.svg" class="bandera"></td>
+          <ng-container *ngIf="filtrado == '' || filtradoFuncion(pais)">
+            <td>{{pais.translations.spa.common}}</td>
+            <td><img [src]="pais.flags.svg" class="w-100"></td>
           </ng-container>
         </tr>
       </tbody>
     </table>
   </ng-container>
 
-  <ng-template #elseEsperandoLosPaises>
-    <ng-container *ngIf="!hayPaises;else elseNoHayPaises">
-      <div class="border rounded py-5 text-info">
-        <h3 class="text-center">Los paises se están cargando.</h3>
-        <div class="text-center">
-          <div class="spinner-border "></div>
-        </div>
+  <ng-template #losPaisesNoEstanAun>
+    <div class="border rounded-3 px-2 py-5 text-info">
+      <h3 class="text-center">Los paises se están cargando</h3>
+      <div class="text-center">
+        <div class="spinner-border "></div>
       </div>
-    </ng-container>
-    <ng-template #elseNoHayPaises>
-      <div class="border rounded py-5 px-2 text-info">
-        <h3 class="text-center">No hay paises en la base de datos</h3>
-      </div>
-    </ng-template>
+    </div>
   </ng-template>
 
 </div>

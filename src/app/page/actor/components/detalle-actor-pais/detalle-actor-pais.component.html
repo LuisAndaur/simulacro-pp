@@ -1,0 +1,7 @@
+<ng-container *ngIf="actor">
+  <div class="container">
+    <h3>Datos país</h3>
+    <app-tabla-paises [filtrado]="actor.nacionalidad" [bloquear]="true"></app-tabla-paises>
+    <app-boton [titulo]="'Limpiar'" (click)="actor = undefined"></app-boton>
+  </div>
+</ng-container>

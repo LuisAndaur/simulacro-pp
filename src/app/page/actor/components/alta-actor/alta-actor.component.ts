@@ -1,10 +1,10 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { pFECHA } from '../../../models/constant/pattern';
-import { ActorService } from '../../../services/actor.service';
-import { Actor } from '../../../models/class/actor';
-import { Genero } from '../../../types/genero';
+import { pFECHA } from '../../../../models/constant/pattern';
+import { ActorService } from '../../../../services/actor.service';
+import { Actor } from '../../../../models/class/actor';
+import { Genero } from '../../../../types/genero';
 
 @Component({
   selector: 'app-alta-actor',

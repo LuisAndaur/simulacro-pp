@@ -1,8 +1,8 @@
 export class Actor {
-  id?: string;
+  id!: string;
   nombre?: string;
   apellido?: string;
   sexo?: string;
   fechaDeNacimiento?: string;
-  nacionalidad?: string;
+  nacionalidad!: string;
 }

@@ -1,0 +1,25 @@
+<app-tabla-actor (onActorEspecifico)="setearActor($event)"></app-tabla-actor>
+
+<div class="container pb-5">
+  <div class="row pt-5">
+
+    <div class="col-12" style="margin: 0 0 20px 0;">
+      <div class="card">
+        <app-detalle-actor-pelicula [actor]="actor"></app-detalle-actor-pelicula>
+      </div>
+    </div>
+
+    <div class="col-md-12 col-lg-6 col-xl-6">
+      <div class="card">
+        <app-detalle-actor-pais [actor]="actor"></app-detalle-actor-pais>
+      </div>
+    </div>
+
+    <div class="col-md-12 col-lg-6 col-xl-6">
+      <div class="card">
+        <app-detalle-actor [actor]="actor"></app-detalle-actor>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="tabla-component jumbotron py-5 px-3">
+  <div class="container">
+    <h3>Listado de Películas</h3>
+  <!-- </div>
+  <div class="container"> -->
+
+    <ng-container *ngIf="peliculas.length;else elseEsperandoPeliculas">
+      <table class="table tabla text-center">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Genero</th>
+            <th>Fecha de estreno</th>
+            <th>Cantidad de público</th>
+            <th>Portada</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pelicula of this.peliculas" (dblclick)="enviarPelicula(pelicula)">
+            <td>{{pelicula.nombre}}</td>
+            <td>{{pelicula.genero}}</td>
+            <td>{{pelicula.fechaDeEstreno}}</td>
+            <td>{{pelicula.cantidadDePublico}}</td>
+            <td style="width:10%"><img style="width:100%" src="{{pelicula.fotoDeLaPelicula}}" alt="{{pelicula.nombre}}"></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </ng-container>
+    <ng-template #elseEsperandoPeliculas>
+      <ng-container *ngIf="!hayPeliculas;else elseNoHayPeliculas">
+        <div class="border rounded py-5">
+          <h3 class="text-center">Las películas se están cargando.</h3>
+          <div class="text-center">
+            <div class="spinner-border "></div>
+          </div>
+        </div>
+      </ng-container>
+      <ng-template #elseNoHayPeliculas>
+        <div class="border rounded py-5">
+          <h3 class="text-center">No hay películas en la base de datos</h3>
+        </div>
+      </ng-template>
+    </ng-template>
+
+  </div>
+</div>

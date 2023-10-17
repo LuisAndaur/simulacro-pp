@@ -1,0 +1,39 @@
+<ng-container *ngIf="actor">
+
+  <div class="container">
+    <h3>Datos actor/actriz</h3>
+
+    <div class="form-floating mb-3">
+      <input readonly [value]="actor.nombre" type="text" class="form-control" id="floatingNombre"
+        placeholder="Nombre del actor/a">
+      <label for="floatingNombre">Nombre del actor/a</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input readonly [value]="actor.apellido" type="text" class="form-control" id="floatingApellido"
+        placeholder="Apellido del actor/a">
+      <label for="floatingApellido">Apellido del actor/a</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input readonly [value]="actor.sexo" type="text" class="form-control" id="floatingSexo" placeholder="Sexo">
+      <label for="floatingSexo">Sexo</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input readonly [value]="actor.fechaDeNacimiento" type="text" class="form-control" id="floatingFechaDeNacimiento"
+        placeholder="Año de Nacimiento">
+      <label for="floatingFechaDeNacimiento">Fecha de nacimiento</label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input readonly [value]="actor.nacionalidad" type="text" class="form-control" id="floatingIdPais" placeholder="País"
+        readonly="true">
+      <label for="floatingIdPais">Nacionalidad</label>
+    </div>
+
+    <app-boton [titulo]="'Limpiar'" (click)="actor = undefined"></app-boton>
+
+  </div>
+
+</ng-container>

@@ -1,17 +1,16 @@
 <div class="tabla-component jumbotron py-5 px-3">
   <div class="container">
-    <h1 class="display-3">Listado de Actores</h1>
-    <!-- <p>Se deben utilizar tanto listado como grilla, con la posibilidad de intercalar la vista entre ambas</p> -->
+    <h3>Listado de Actores</h3>
   </div>
   <div class="container px-4 py-5">
     <table *ngIf="this.actores.length; else noHayActores" class="table tabla text-center">
       <thead>
         <tr>
-          <th>nombre</th>
-          <th>apelido</th>
-          <th>sexo</th>
-          <th>fecha de Nacimiento</th>
-          <th>nacionalidad</th>
+          <th>Nombre</th>
+          <th>Apelido</th>
+          <th>Género</th>
+          <th>Fecha de nacimiento</th>
+          <th>Nacionalidad</th>
         </tr>
       </thead>
       <tbody>

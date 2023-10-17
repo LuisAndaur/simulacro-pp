@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IRestCountries } from '../../../../models/interfaces/rest-countries';
 import { RestCountriesService } from '../../../../services/rest-countries.service';
 
@@ -10,8 +10,8 @@ import { RestCountriesService } from '../../../../services/rest-countries.servic
 export class TablaPaisesComponent implements OnInit {
 
   paises: Array<IRestCountries> = [];
-  hayPaises: boolean = false;
-  filtrado: string = '';
+  @Input() filtrado: string = '';
+  @Input() bloquear: boolean = false;
   @Output('onPais') onPaisChange = new EventEmitter<any>();
 
   constructor(private restCountriesService: RestCountriesService) {}
@@ -19,12 +19,23 @@ export class TablaPaisesComponent implements OnInit {
   ngOnInit(): void {
     this.restCountriesService.getPaises().subscribe((countries) => {
       this.paises = countries;
-      this.hayPaises = !!this.paises;
     });
   }
 
   enviarPais(pais: any): void {
     this.onPaisChange.emit(pais);
+  }
+
+  filtradoFuncion(pais: any): boolean {
+    if (this.bloquear) {
+      return (
+        pais.translations.spa.common.toLowerCase() ==
+        this.filtrado.toLowerCase()
+      );
+    }
+    return pais.translations.spa.common
+      .toLowerCase()
+      .includes(this.filtrado.toLowerCase());
   }
 
 }

@@ -1,0 +1,7 @@
+
+<ng-container *ngIf="actor">
+  <app-tabla-pelicula [hayPeliculas]="hayPeliculas" [peliculas]="peliculas"></app-tabla-pelicula>
+  <div class="mt-3">
+    <app-boton [titulo]="'Limpiar'" (click)="actor = undefined"></app-boton>
+  </div>
+</ng-container>
